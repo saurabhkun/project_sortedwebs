@@ -1,12 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Zap, Home, Heart, Archive, Globe } from 'lucide-react';
 
-interface SidebarProps {
-  activeCategory: string | null;
-  onCategoryChange: (category: string | null) => void;
-}
-
-export default function Sidebar({ activeCategory, onCategoryChange }: SidebarProps) {
+export default function Sidebar() {
   const location = useLocation();
 
   const categories = [
@@ -15,6 +10,14 @@ export default function Sidebar({ activeCategory, onCategoryChange }: SidebarPro
     { name: 'Dev Tools', color: 'bg-green-900' },
     { name: 'Entertainment', color: 'bg-orange-900' },
   ];
+
+  const getActiveCategory = () => {
+    if (location.pathname === '/favorites') return 'favorites';
+    if (location.pathname === '/archives') return 'archives';
+    return null;
+  };
+
+  const activeCategory = getActiveCategory();
 
   return (
     <div className="w-64 bg-gray-950 border-r border-blue-900/30 h-screen fixed left-0 top-0 flex flex-col">
@@ -27,7 +30,6 @@ export default function Sidebar({ activeCategory, onCategoryChange }: SidebarPro
         <nav className="space-y-3 mb-8">
           <Link
             to="/"
-            onClick={() => onCategoryChange(null)}
             className={`flex items-center gap-3 px-4 py-2 rounded-lg transition ${
               location.pathname === '/' && !activeCategory
                 ? 'bg-blue-900/30 text-blue-400'
@@ -35,11 +37,10 @@ export default function Sidebar({ activeCategory, onCategoryChange }: SidebarPro
             }`}
           >
             <Home className="w-5 h-5" />
-            <span>All Items</span>
+            <span>Dashboard</span>
           </Link>
           <Link
             to="/explore"
-            onClick={() => onCategoryChange(null)}
             className={`flex items-center gap-3 px-4 py-2 rounded-lg transition ${
               location.pathname === '/explore'
                 ? 'bg-blue-900/30 text-blue-400'
@@ -49,9 +50,9 @@ export default function Sidebar({ activeCategory, onCategoryChange }: SidebarPro
             <Globe className="w-5 h-5" />
             <span>Explore Stacks</span>
           </Link>
-          <button
-            onClick={() => onCategoryChange('favorites')}
-            className={`w-full flex items-center gap-3 px-4 py-2 rounded-lg transition text-left ${
+          <Link
+            to="/favorites"
+            className={`flex items-center gap-3 px-4 py-2 rounded-lg transition ${
               activeCategory === 'favorites'
                 ? 'bg-blue-900/30 text-blue-400'
                 : 'text-gray-400 hover:text-blue-400'
@@ -59,10 +60,10 @@ export default function Sidebar({ activeCategory, onCategoryChange }: SidebarPro
           >
             <Heart className="w-5 h-5" />
             <span>Favorites</span>
-          </button>
-          <button
-            onClick={() => onCategoryChange('archives')}
-            className={`w-full flex items-center gap-3 px-4 py-2 rounded-lg transition text-left ${
+          </Link>
+          <Link
+            to="/archives"
+            className={`flex items-center gap-3 px-4 py-2 rounded-lg transition ${
               activeCategory === 'archives'
                 ? 'bg-blue-900/30 text-blue-400'
                 : 'text-gray-400 hover:text-blue-400'
@@ -70,24 +71,24 @@ export default function Sidebar({ activeCategory, onCategoryChange }: SidebarPro
           >
             <Archive className="w-5 h-5" />
             <span>Archives</span>
-          </button>
+          </Link>
         </nav>
 
         <div>
           <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Smart Categories</h3>
           <div className="space-y-2">
             {categories.map((cat) => (
-              <button
+              <Link
                 key={cat.name}
-                onClick={() => onCategoryChange(cat.name)}
-                className={`w-full text-left px-3 py-2 rounded-lg text-sm transition ${
+                to={`/?category=${cat.name}`}
+                className={`block w-full text-left px-3 py-2 rounded-lg text-sm transition ${
                   activeCategory === cat.name
                     ? `${cat.color} text-white`
                     : 'bg-gray-900/50 text-gray-400 hover:bg-gray-900'
                 }`}
               >
                 {cat.name}
-              </button>
+              </Link>
             ))}
           </div>
         </div>

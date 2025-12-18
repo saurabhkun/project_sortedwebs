@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import TopBar from '../components/TopBar';
 import WebsiteCard from '../components/WebsiteCard';
 import { useWebsites } from '../hooks/useWebsites';
@@ -9,17 +9,21 @@ export default function Dashboard() {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const location = useLocation();
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
     const path = location.pathname;
+    const categoryParam = searchParams.get('category');
     if (path === '/favorites') {
       setActiveCategory('favorites');
     } else if (path === '/archives') {
       setActiveCategory('archives');
+    } else if (categoryParam) {
+      setActiveCategory(categoryParam);
     } else {
       setActiveCategory(null);
     }
-  }, [location.pathname]);
+  }, [location.pathname, searchParams]);
 
   const filteredWebsites = useMemo(() => {
     let filtered = websites;
