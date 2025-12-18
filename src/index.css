@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.5);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(59, 130, 246, 0.3);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(59, 130, 246, 0.6);
+  }
+}
+
+@layer components {
+  .glass {
+    @apply backdrop-blur-xl bg-white/5;
+  }
+
+  .glow-blue {
+    @apply shadow-lg shadow-blue-900/50;
+  }
+
+  .neon-text {
+    @apply text-blue-400 drop-shadow-lg drop-shadow-blue-900/50;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.6), inset 0 0 30px rgba(96, 165, 250, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 50px rgba(59, 130, 246, 0.8), inset 0 0 40px rgba(96, 165, 250, 0.5);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
