@@ -69,8 +69,33 @@ Built with a modern "Dark Mode First" aesthetic using Tailwind CSS and Lucide Ic
 
 ## 🚀 How to Run Locally
 
-1. **Clone the repo**
+   1. **Clone the repo**
    ```bash
-   git clone [https://github.com/saurabhkun/SortedWebs.git](https://github.com/saurabhkun/SortedWebs.git)
-   cd SortedWebs
+   git clone https://github.com/saurabhkun/project_sortedwebs
+   cd project_sortedwebs
    ```
+   2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
+   3. **Set up Environment Variables Create a .env file in the root and add your Supabase keys:**
+   ```Code snippet
+
+   VITE_SUPABASE_URL=your_supabase_url
+   VITE_SUPABASE_ANON_KEY=your_supabase_keyl 
+   ```
+   4. **Run the App**
+   ```bash
+
+   npm run dev
+   ```
+🔮 Future Roadmap
+
+[ ] Browser Extension for 1-click save.
+
+[ ] "Public Profiles" to share your stacks with the world.
+
+[ ] AI Summary of articles saved.
+
+Made with ❤️ by Runtime Terror for VIBE HACK 2.0 – 2025.
+   
