@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import Sidebar from './Sidebar';
+import AddLinkFab from './AddLinkFab';
 
 export default function Layout() {
   return (
@@ -8,6 +9,7 @@ export default function Layout() {
       <div className="flex-1 ml-64">
         <Outlet />
       </div>
+      <AddLinkFab />
     </div>
   );
 }
