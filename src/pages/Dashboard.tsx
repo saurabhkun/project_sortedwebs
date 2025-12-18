@@ -1,5 +1,5 @@
-import { useState, useMemo } from 'react';
-import Sidebar from '../components/Sidebar';
+import { useState, useMemo, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import TopBar from '../components/TopBar';
 import WebsiteCard from '../components/WebsiteCard';
 import { useWebsites } from '../hooks/useWebsites';
@@ -8,6 +8,18 @@ export default function Dashboard() {
   const { websites, loading, deleteWebsite, updateWebsite } = useWebsites();
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    const path = location.pathname;
+    if (path === '/favorites') {
+      setActiveCategory('favorites');
+    } else if (path === '/archives') {
+      setActiveCategory('archives');
+    } else {
+      setActiveCategory(null);
+    }
+  }, [location.pathname]);
 
   const filteredWebsites = useMemo(() => {
     let filtered = websites;
@@ -36,11 +48,10 @@ export default function Dashboard() {
   }, [websites, searchQuery, activeCategory]);
 
   return (
-    <div className="min-h-screen bg-gray-950">
-      <Sidebar activeCategory={activeCategory} onCategoryChange={setActiveCategory} />
+    <>
       <TopBar searchQuery={searchQuery} onSearchChange={setSearchQuery} />
 
-      <main className="ml-64 mt-24 p-8">
+      <main className="mt-24 p-8">
         {loading ? (
           <div className="text-center text-gray-400">Loading websites...</div>
         ) : filteredWebsites.length === 0 ? (
@@ -60,6 +71,6 @@ export default function Dashboard() {
           </div>
         )}
       </main>
-    </div>
+    </>
   );
 }
