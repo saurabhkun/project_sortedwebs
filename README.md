@@ -57,13 +57,13 @@ Built with a modern "Dark Mode First" aesthetic using Tailwind CSS and Lucide Ic
 
 ## 📸 Screenshots
 
-| Dashboard | Add Link (AI Mode) |
+| 📊 **Dashboard** (Your Links) | 🧠 **Smart AI Categorization** |
 |:---:|:---:|
-| *(Add screenshot here)* | *(Add screenshot here)* |
+| ![Dashboard](https://github.com/user-attachments/assets/f8585485-800a-4542-a972-f5687f4281b0) | ![AI Categorization](https://github.com/user-attachments/assets/80e02159-880f-4218-a8dd-0dc1a6dcb5e9) |
 
-| Curated Stacks | Mobile View |
+| 📦 **Curated Stacks** (Explore Page) | |
 |:---:|:---:|
-| *(Add screenshot here)* | *(Add screenshot here)* |
+| ![Curated Stacks](https://github.com/user-attachments/assets/24bdac1a-75f8-46b6-807d-8720999d8b66) | |
 
 ---
 
