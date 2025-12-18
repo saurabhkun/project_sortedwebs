@@ -94,21 +94,6 @@ export default function Sidebar() {
               </Link>
             ))}
           </div>
-        </div>
-      </div>
-      <div className="p-4 border-t border-blue-900/20">
-        <div className="bg-gradient-to-b from-gray-900 to-gray-800 p-3 rounded-lg text-white">
-          <div className="flex items-center justify-between mb-2">
-            <div>
-              <div className="text-sm font-semibold">Pro Plan</div>
-              <div className="text-xs text-gray-300">Upgrade for advanced features</div>
-            </div>
-            <div className="text-sm text-blue-400 font-semibold">$6/mo</div>
-          </div>
-          <div className="mt-2">
-            <button className="w-full bg-blue-600 hover:bg-blue-500 text-sm py-2 rounded-md">Upgrade</button>
-          </div>
-        </div>
       </div>
     </div>
   );
