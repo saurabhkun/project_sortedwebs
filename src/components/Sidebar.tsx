@@ -12,8 +12,11 @@ export default function Sidebar() {
   ];
 
   const getActiveCategory = () => {
+    const params = new URLSearchParams(location.search);
+    const categoryParam = params.get('category');
     if (location.pathname === '/favorites') return 'favorites';
     if (location.pathname === '/archives') return 'archives';
+    if (categoryParam) return categoryParam;
     return null;
   };
 
