@@ -3,7 +3,7 @@
 > **The AI-Powered Personal Web Library & Curator.**
 > *Organize your digital chaos. Discover curated stacks. Share your world.*
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b5c8e434-2e34-4235-8597-2e3456789/deploy-status)](https://app.netlify.com/sites/sortedwebs-mvp/deploys)
+[![Netlify Status][![Netlify Status](https://api.netlify.com/api/v1/badges/6e6ea11a-ec68-4674-a545-becf069a5be2/deploy-status)](https://app.netlify.com/projects/sortedwebs-mvp/deploys)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Supabase](https://img.shields.io/badge/Supabase-181818?style=for-the-badge&logo=supabase&logoColor=3ECF8E)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
@@ -12,7 +12,7 @@
 
 ## 🌐 Live Demo
 👉 **[Click Here to Try SortedWebs](https://sortedwebs-mvp.netlify.app)**
-*(Login with Username: `judge` / Password: `pass123`)*
+
 
 ---
 
