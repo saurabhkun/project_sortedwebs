@@ -284,7 +284,7 @@ export default function AddLinkFab() {
       setUrl('');
       setCategory('');
       window.location.reload(); // Refresh to show new link
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error adding link:', error);
       alert('Failed to add link');
     } finally {
